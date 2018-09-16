@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Biblioteca.h"
-#define T 2
+#define T 4
 
 
 void cargarAlumnos(int[], char [] [21], int [], float[], int);

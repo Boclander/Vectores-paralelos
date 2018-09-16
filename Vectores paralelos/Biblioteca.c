@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "Biblioteca.h"
 
 int menu(int opcion)
@@ -54,32 +55,35 @@ void mostrarAlumnos(int legajo[], char nombres[] [21], int notas[], float altura
     }
     system("pause");
 }
-void ordenarNombre(int legajo[], char nombres[] [21], int notas [], float alturas [], int tam)
+void ordenarNombre(int legajo[], char nombres[][21], int notas [], float alturas [], int tam)
 {
-    int i;
+    int i=0;
     int j;
-    char auxNombres[21];
-    int auxLegajo;
+    int r;
+    char auxNombres[1][21];
+    int auxLegajo[1];
     int auxNotas;
     float auxAlturas;
 
     system("cls");
-    for(i=0; i<tam-1; i++)
+    for(; i<tam-1; i++)
     {
         for(j=i+1; j<tam; j++)
         {
-            if(nombres[i][21] < nombres[j][21])
-            {
-                strcpy(auxNombres,nombres[i][21]);
-                strcpy(nombres[i][21],nombres[j][21]);
-                strcpy(nombres[j][21],auxNombres);
+                r=strcmp(nombres[i], nombres[j]);
+                if (r > 0)
+                {
+                    strcpy(auxNombres[1], nombres[i]);
+                    strcpy(nombres[i], nombres[j]);
+                    strcpy(nombres[j], auxNombres[1]);
 
-         /*       strcpy(auxLegajo, legajo[i]);
-                strcpy(legajo[i], legajo[j]);
-                strcpy(legajo[j], auxLegajo);
-     */       }
+                //    strcpy(auxLegajo[1], legajo[i]);
+               //     strcpy(legajo[i], legajo[j]);
+               //     strcpy(legajo[j], auxLegajo[1]);
+                }
         }
     }
     printf("          ORDENANDO POR NOMBRE\n");
     system("pause");
 }
+
