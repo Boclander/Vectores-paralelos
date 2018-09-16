@@ -15,7 +15,7 @@ void mostrarAlumnosJuan();
 void mostrarAlumnosNombreP();
 //-Ingresar legajo y permitir modificacion de nota si se encuentra.
 //-Transformar carga de alumnos en carga aleatoria.
-                //Menú de opciones
+//Menú de opciones
 
 int main()
 {
@@ -26,21 +26,30 @@ int main()
     float alturas[T];
     int i;
 
-    opcion=menu(opcion);
-    system("pause");
-    switch(opcion)
+    do
     {
-    case 1:
-        cargarAlumnos(legajo, nombres, notas, alturas, T);
-        break;
-    case 2:
-        mostrarAlumnos(legajo, nombres, notas, alturas, T);
-        break;
-    case 3:
-        ordenarNombre(nombres, T);
-        break;
-    case 4:
+        system("cls");
+        opcion=menu(opcion);
+        system("pause");
+        switch(opcion)
+        {
+        case 1:
+            cargarAlumnos(legajo, nombres, notas, alturas, T);
+            break;
+        case 2:
+            mostrarAlumnos(legajo, nombres, notas, alturas, T);
+            break;
+        case 3:
+            ordenarNombre(legajo, nombres, notas, alturas, T);
+            mostrarAlumnos(legajo, nombres, notas, alturas, T);
+            break;
+        //case 4:
+        case 10:
+            opcion=10;
+            break;
+        }
     }
+    while(opcion != 10);
 
     return 0;
 }

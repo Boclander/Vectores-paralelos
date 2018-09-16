@@ -10,13 +10,13 @@ int menu(int opcion)
     printf("\n");
     printf("1.Cargar alumnos           6.Alumno mas mediocre\n");
     printf("\n");
-    printf("2.Mostrar todos los datos  7.Todos los alumnos que se llamen Juan\n");
+    printf("2.Mostrar lista            7.Todos los alumnos que se llamen Juan\n");
     printf("\n");
     printf("3.Ordenar por nombre       8.Todos los alumnos que empiecen con P\n");
     printf("\n");
     printf("4.Alumnos aprobados        9.Modificar nota a partir de legajo\n");
     printf("\n");
-    printf("5.Alumno con nota mas alta\n");
+    printf("5.Alumno con nota mas alta 10.Salir\n");
     printf("=========================================================================\n");
     printf("Ingrese una opcion: ");
     scanf("%d", &opcion);
@@ -52,22 +52,34 @@ void mostrarAlumnos(int legajo[], char nombres[] [21], int notas[], float altura
     {
         printf("%4d %20s %20d %.2f\n", legajo[i], nombres[i], notas[i], alturas[i]);
     }
+    system("pause");
 }
-void ordenarNombre(char nombres[][21], int tam)
+void ordenarNombre(int legajo[], char nombres[] [21], int notas [], float alturas [], int tam)
 {
     int i;
     int j;
-    char aux[21];
+    char auxNombres[21];
+    int auxLegajo;
+    int auxNotas;
+    float auxAlturas;
+
+    system("cls");
     for(i=0; i<tam-1; i++)
     {
         for(j=i+1; j<tam; j++)
         {
-            if(nombres[i] < nombres[j])
+            if(nombres[i][21] < nombres[j][21])
             {
-                strcpy(aux,nombres[i]);
-                strcpy(nombres[i],nombres[j]);
-                strcpy(nombres[j],aux);
-            }
+                strcpy(auxNombres,nombres[i][21]);
+                strcpy(nombres[i][21],nombres[j][21]);
+                strcpy(nombres[j][21],auxNombres);
+
+         /*       strcpy(auxLegajo, legajo[i]);
+                strcpy(legajo[i], legajo[j]);
+                strcpy(legajo[j], auxLegajo);
+     */       }
         }
     }
+    printf("          ORDENANDO POR NOMBRE\n");
+    system("pause");
 }
