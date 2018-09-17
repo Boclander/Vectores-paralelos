@@ -94,5 +94,9 @@ void mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam)
             x++;
         }
     }
-    mostrarAlumnos(alumnosAprobados, tam);
+    printf("=========================================================================\n");
+    printf("                           ALUMNOS APROBADOS\n");
+    printf("=========================================================================\n");
+    system("pause");
+    mostrarAlumnos(alumnosAprobados, x);
 }

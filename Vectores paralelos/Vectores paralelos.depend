@@ -1,17 +1,17 @@
 # depslib dependency file v1.0
-1537138868 source:c:\users\bruno\desktop\vectores-paralelos\vectores paralelos\main.c
+1537213427 source:c:\users\bruno\desktop\vectores-paralelos\vectores paralelos\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"Biblioteca.h"
 
-1537140602 source:c:\users\bruno\desktop\vectores-paralelos\vectores paralelos\biblioteca.c
+1537213640 source:c:\users\bruno\desktop\vectores-paralelos\vectores paralelos\biblioteca.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"Biblioteca.h"
 
-1537140602 c:\users\bruno\desktop\vectores-paralelos\vectores paralelos\biblioteca.h
+1537218726 c:\users\bruno\desktop\vectores-paralelos\vectores paralelos\biblioteca.h
 
 1537197729 source:c:\users\alumno\desktop\vectores-paralelos\vectores paralelos\main.c
 	<stdio.h>
