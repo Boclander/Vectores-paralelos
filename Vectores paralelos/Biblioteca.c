@@ -24,66 +24,75 @@ int menu(int opcion)
 
     return opcion;
 }
-void cargarAlumnos(int legajo[], char nombres[] [21], int notas[], float alturas[], int tam)
+void cargarAlumnos(sAlumno listadoAlumnos[], int tam)
 {
     int i;
     for(i=0; i<tam; i++)
     {
         system("cls");
         printf("Ingrese legajo: ");
-        scanf("%d", &legajo[i]);
-
-        printf("Ingrese nombre: ");
+        scanf("%d", &listadoAlumnos[i].legajo);
         fflush(stdin);
-        gets(nombres[i]);
-
+        printf("Ingrese nombre: ");
+        gets(listadoAlumnos[i].nombre);
+        fflush(stdin);
         printf("Ingrese nota: ");
-        scanf("%d", &notas[i]);
-
+        scanf("%d", &listadoAlumnos[i].nota);
+        fflush(stdin);
         printf("Ingrese altura: ");
-        scanf("%f", &alturas[i]);
+        scanf("%f", &listadoAlumnos[i].altura);
+        fflush(stdin);
     }
 }
-void mostrarAlumnos(int legajo[], char nombres[] [21], int notas[], float alturas[], int tam)
+void mostrarAlumnos(sAlumno listadoAlumnos[], int tam)
 {
     system("cls");
     printf("%4s %20s %20s %5s \n", "Legajo", "Nombre", "Nota", "Altura");
     int i;
     for(i=0; i<tam; i++)
     {
-        printf("%4d %20s %20d %.2f\n", legajo[i], nombres[i], notas[i], alturas[i]);
+        printf("%4d %20s %20d %.2f\n", listadoAlumnos[i].legajo, listadoAlumnos[i].nombre, listadoAlumnos[i].nota, listadoAlumnos[i].altura);
     }
     system("pause");
 }
-void ordenarNombre(int legajo[], char nombres[][21], int notas [], float alturas [], int tam)
+void ordenarNombre(sAlumno listadoAlumnos[], int tam)
 {
-    int i=0;
+    int i;
     int j;
-    int r;
-    char auxNombres[1][21];
-    int auxLegajo[1];
-    int auxNotas;
-    float auxAlturas;
+    sAlumno aux;
 
     system("cls");
-    for(; i<tam-1; i++)
+    for(i=0; i<tam-1; i++)
     {
         for(j=i+1; j<tam; j++)
         {
-                r=strcmp(nombres[i], nombres[j]);
-                if (r > 0)
+                if (strcmp(listadoAlumnos[i].nombre, listadoAlumnos[j].nombre) > 0)
                 {
-                    strcpy(auxNombres[1], nombres[i]);
-                    strcpy(nombres[i], nombres[j]);
-                    strcpy(nombres[j], auxNombres[1]);
-
-                //    strcpy(auxLegajo[1], legajo[i]);
-               //     strcpy(legajo[i], legajo[j]);
-               //     strcpy(legajo[j], auxLegajo[1]);
+                    aux=listadoAlumnos[i];
+                    listadoAlumnos[i]=listadoAlumnos[j];
+                    listadoAlumnos[j]=aux;
                 }
         }
     }
-    printf("          ORDENANDO POR NOMBRE\n");
+    printf("=========================================================================\n");
+    printf("                           ORDENANDO POR NOMBRE\n");
+    printf("=========================================================================\n");
     system("pause");
 }
 
+void mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam)
+{
+    int i;
+    int x=0;
+    sAlumno alumnosAprobados[i];
+
+    for(i=0; i<tam; i++)
+    {
+        if(listadoAlumnos[i].nota > 6)
+        {
+            alumnosAprobados[i]=listadoAlumnos[i];
+            x++;
+        }
+    }
+    mostrarAlumnos(alumnosAprobados, tam);
+}
