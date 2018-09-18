@@ -8,7 +8,7 @@ typedef struct
     int nota;
 }sAlumno;
 
-int menu(int);
+void menu(sAlumno[], int);
 void cargarAlumnos(sAlumno[], int);
 void mostrarAlumnos(sAlumno[], int);
 void ordenarNombre(sAlumno[], int);

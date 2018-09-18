@@ -3,8 +3,13 @@
 #include <string.h>
 #include "Biblioteca.h"
 
-int menu(int opcion)
+void menu(sAlumno listadoAlumnos[], int T)
 {
+    int opcion;
+    do
+    {
+
+    system("cls");
     printf("=========================================================================\n");
     printf("                            REGISTRO DE ALUMNOS                          \n");
     printf("=========================================================================\n");
@@ -13,16 +18,37 @@ int menu(int opcion)
     printf("\n");
     printf("2.Mostrar lista            7.Todos los alumnos que se llamen Juan\n");
     printf("\n");
-    printf("3.Ordenar por nombre       8.Todos los alumnos que empiecen con P\n");
+    printf("3.Ordenar por nombre       8.Todos los alumnos que empiecen con 'P'\n");
     printf("\n");
     printf("4.Alumnos aprobados        9.Modificar nota a partir de legajo\n");
     printf("\n");
     printf("5.Alumno con nota mas alta 10.Salir\n");
     printf("=========================================================================\n");
+    printf("\n");
     printf("Ingrese una opcion: ");
     scanf("%d", &opcion);
+    system("pause");
 
-    return opcion;
+    switch(opcion)
+        {
+        case 1:
+            cargarAlumnos(listadoAlumnos, T);
+            break;
+        case 2:
+            mostrarAlumnos(listadoAlumnos, T);
+            break;
+        case 3:
+            ordenarNombre(listadoAlumnos, T);
+            mostrarAlumnos(listadoAlumnos, T);
+            break;
+        case 4:
+            mostrarAlumnosAprobados(listadoAlumnos, T);
+            mostrarAlumnos(listadoAlumnos, T);
+        case 10:
+            opcion=10;
+            break;
+        }
+    } while (opcion != 10);
 }
 void cargarAlumnos(sAlumno listadoAlumnos[], int tam)
 {
@@ -77,6 +103,7 @@ void ordenarNombre(sAlumno listadoAlumnos[], int tam)
     printf("=========================================================================\n");
     printf("                           ORDENANDO POR NOMBRE\n");
     printf("=========================================================================\n");
+    printf("\n");
     system("pause");
 }
 
@@ -86,17 +113,19 @@ void mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam)
     int x=0;
     sAlumno alumnosAprobados[i];
 
-    for(i=0; i<tam; i++)
-    {
-        if(listadoAlumnos[i].nota > 6)
-        {
-            alumnosAprobados[i]=listadoAlumnos[i];
-            x++;
-        }
-    }
+    system("cls");
+
     printf("=========================================================================\n");
     printf("                           ALUMNOS APROBADOS\n");
     printf("=========================================================================\n");
+    printf("\n");
     system("pause");
-    mostrarAlumnos(alumnosAprobados, x);
+
+    for(i=0; i<tam; i++)
+    {
+        if(listadoAlumnos[i].nota >= 6)
+        {
+            alumnosAprobados[i]=listadoAlumnos[i];
+        }
+    }
 }
