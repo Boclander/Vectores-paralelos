@@ -6,6 +6,7 @@
 void menu(sAlumno listadoAlumnos[], int T)
 {
     int opcion;
+    sAlumno alumnosAprobados[T];
     do
     {
 
@@ -43,7 +44,8 @@ void menu(sAlumno listadoAlumnos[], int T)
             break;
         case 4:
             mostrarAlumnosAprobados(listadoAlumnos, T);
-            mostrarAlumnos(listadoAlumnos, T);
+            mostrarAlumnos(alumnosAprobados, T);
+            break;
         case 10:
             opcion=10;
             break;
@@ -107,11 +109,11 @@ void ordenarNombre(sAlumno listadoAlumnos[], int tam)
     system("pause");
 }
 
-void mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam)
+sAlumno mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam)
 {
     int i;
-    int x=0;
-    sAlumno alumnosAprobados[i];
+    int x;
+    sAlumno alumnosAprobados[tam];
 
     system("cls");
 
@@ -123,9 +125,11 @@ void mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam)
 
     for(i=0; i<tam; i++)
     {
-        if(listadoAlumnos[i].nota >= 6)
+        if(listadoAlumnos[i].nota > 6)
         {
-            alumnosAprobados[i]=listadoAlumnos[i];
+            alumnosAprobados[x]=listadoAlumnos[i];
+            x++;
         }
     }
+    return alumnosAprobados[x];
 }
