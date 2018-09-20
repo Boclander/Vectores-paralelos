@@ -6,31 +6,30 @@
 void menu(sAlumno listadoAlumnos[], int T)
 {
     int opcion;
-    sAlumno alumnosAprobados[T];
     do
     {
 
-    system("cls");
-    printf("=========================================================================\n");
-    printf("                            REGISTRO DE ALUMNOS                          \n");
-    printf("=========================================================================\n");
-    printf("\n");
-    printf("1.Cargar alumnos           6.Alumno mas mediocre\n");
-    printf("\n");
-    printf("2.Mostrar lista            7.Todos los alumnos que se llamen Juan\n");
-    printf("\n");
-    printf("3.Ordenar por nombre       8.Todos los alumnos que empiecen con 'P'\n");
-    printf("\n");
-    printf("4.Alumnos aprobados        9.Modificar nota a partir de legajo\n");
-    printf("\n");
-    printf("5.Alumno con nota mas alta 10.Salir\n");
-    printf("=========================================================================\n");
-    printf("\n");
-    printf("Ingrese una opcion: ");
-    scanf("%d", &opcion);
-    system("pause");
+        system("cls");
+        printf("=========================================================================\n");
+        printf("                            REGISTRO DE ALUMNOS                          \n");
+        printf("=========================================================================\n");
+        printf("\n");
+        printf("1.Cargar alumnos           6.Alumno mas mediocre\n");
+        printf("\n");
+        printf("2.Mostrar lista            7.Todos los alumnos que se llamen Juan\n");
+        printf("\n");
+        printf("3.Ordenar por nombre       8.Todos los alumnos que empiecen con 'P'\n");
+        printf("\n");
+        printf("4.Alumnos aprobados        9.Modificar nota a partir de legajo\n");
+        printf("\n");
+        printf("5.Alumno con nota mas alta 10.Salir\n");
+        printf("=========================================================================\n");
+        printf("\n");
+        printf("Ingrese una opcion: ");
+        scanf("%d", &opcion);
+        system("pause");
 
-    switch(opcion)
+        switch(opcion)
         {
         case 1:
             cargarAlumnos(listadoAlumnos, T);
@@ -44,13 +43,15 @@ void menu(sAlumno listadoAlumnos[], int T)
             break;
         case 4:
             mostrarAlumnosAprobados(listadoAlumnos, T);
-            mostrarAlumnos(alumnosAprobados, T);
+            break;
+        case 5:
             break;
         case 10:
             opcion=10;
             break;
         }
-    } while (opcion != 10);
+    }
+    while (opcion != 10);
 }
 void cargarAlumnos(sAlumno listadoAlumnos[], int tam)
 {
@@ -94,12 +95,12 @@ void ordenarNombre(sAlumno listadoAlumnos[], int tam)
     {
         for(j=i+1; j<tam; j++)
         {
-                if (strcmp(listadoAlumnos[i].nombre, listadoAlumnos[j].nombre) > 0)
-                {
-                    aux=listadoAlumnos[i];
-                    listadoAlumnos[i]=listadoAlumnos[j];
-                    listadoAlumnos[j]=aux;
-                }
+            if (strcmp(listadoAlumnos[i].nombre, listadoAlumnos[j].nombre) > 0)
+            {
+                aux=listadoAlumnos[i];
+                listadoAlumnos[i]=listadoAlumnos[j];
+                listadoAlumnos[j]=aux;
+            }
         }
     }
     printf("=========================================================================\n");
@@ -120,6 +121,7 @@ void mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam)
     printf("=========================================================================\n");
     printf("\n");
     system("pause");
+    system("cls");
 
     printf("%4s %20s %20s %5s \n", "Legajo", "Nombre", "Nota", "Altura");
     for(i=0; i<tam; i++)
@@ -129,4 +131,5 @@ void mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam)
             printf("%4d %20s %4d %5.2f\n", listadoAlumnos[i].legajo, listadoAlumnos[i].nombre, listadoAlumnos[i].nota, listadoAlumnos[i].altura);
         }
     }
+    system("pause");
 }
