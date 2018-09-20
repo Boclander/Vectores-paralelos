@@ -75,11 +75,11 @@ void cargarAlumnos(sAlumno listadoAlumnos[], int tam)
 void mostrarAlumnos(sAlumno listadoAlumnos[], int tam)
 {
     system("cls");
-    printf("%4s %20s %20s %5s \n", "Legajo", "Nombre", "Nota", "Altura");
+    printf("%4s %20s %4s %5s \n", "Legajo", "Nombre", "Nota", "Altura");
     int i;
     for(i=0; i<tam; i++)
     {
-        printf("%4d %20s %20d %.2f\n", listadoAlumnos[i].legajo, listadoAlumnos[i].nombre, listadoAlumnos[i].nota, listadoAlumnos[i].altura);
+        printf("%4d %20s %4d %5.2f\n", listadoAlumnos[i].legajo, listadoAlumnos[i].nombre, listadoAlumnos[i].nota, listadoAlumnos[i].altura);
     }
     system("pause");
 }
@@ -109,11 +109,9 @@ void ordenarNombre(sAlumno listadoAlumnos[], int tam)
     system("pause");
 }
 
-sAlumno mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam)
+void mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam)
 {
     int i;
-    int x;
-    sAlumno alumnosAprobados[tam];
 
     system("cls");
 
@@ -123,13 +121,12 @@ sAlumno mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam)
     printf("\n");
     system("pause");
 
+    printf("%4s %20s %20s %5s \n", "Legajo", "Nombre", "Nota", "Altura");
     for(i=0; i<tam; i++)
     {
         if(listadoAlumnos[i].nota > 6)
         {
-            alumnosAprobados[x]=listadoAlumnos[i];
-            x++;
+            printf("%4d %20s %4d %5.2f\n", listadoAlumnos[i].legajo, listadoAlumnos[i].nombre, listadoAlumnos[i].nota, listadoAlumnos[i].altura);
         }
     }
-    return alumnosAprobados[x];
 }
