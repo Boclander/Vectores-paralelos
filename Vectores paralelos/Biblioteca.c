@@ -14,15 +14,15 @@ void menu(sAlumno listadoAlumnos[], int T)
         printf("                            REGISTRO DE ALUMNOS                          \n");
         printf("=========================================================================\n");
         printf("\n");
-        printf("1.Cargar alumnos           6.Alumno mas mediocre\n");
+        printf("1.Cargar alumnos                   6.Mostrar alumnos mediocres\n");
         printf("\n");
-        printf("2.Mostrar lista            7.Todos los alumnos que se llamen Juan\n");
+        printf("2.Mostrar lista                    7.Todos los alumnos que se llamen Juan\n");
         printf("\n");
-        printf("3.Ordenar por nombre       8.Todos los alumnos que empiecen con 'P'\n");
+        printf("3.Ordenar por nombre               8.Todos los alumnos que empiezan con 'P'\n");
         printf("\n");
-        printf("4.Alumnos aprobados        9.Modificar nota a partir de legajo\n");
+        printf("4.Mostrar alumnos aprobados        9.Modificar nota a partir de legajo\n");
         printf("\n");
-        printf("5.Alumno con nota mas alta              10.Salir\n");
+        printf("5.Mostrar alumno con nota mas alta          10.Salir\n");
         printf("=========================================================================\n");
         printf("\n");
         printf("Ingrese una opcion: ");
@@ -49,6 +49,12 @@ void menu(sAlumno listadoAlumnos[], int T)
             break;
         case 6:
             alumnoMediocre(listadoAlumnos, T);
+            break;
+        case 7:
+            mostrarAlumnosJuan(listadoAlumnos, T);
+            break;
+        case 8:
+            mostrarAlumnosNombreP(listadoAlumnos, T);
             break;
         case 10:
             opcion=10;
@@ -180,6 +186,54 @@ void alumnoMediocre(sAlumno listadoAlumnos[], int tam)
     for(i=0; i<tam; i++)
     {
         if(listadoAlumnos[i].legajo == 100 && strcmp(listadoAlumnos[i].nombre, "Juan") == 0 && listadoAlumnos[i].nota == 5 && listadoAlumnos[i].altura == 1.75)
+        {
+            printf("%4d %20s %4d %5.2f\n", listadoAlumnos[i].legajo, listadoAlumnos[i].nombre, listadoAlumnos[i].nota, listadoAlumnos[i].altura);
+        }
+    }
+    system("pause");
+}
+
+void mostrarAlumnosJuan(sAlumno listadoAlumnos[], int tam)
+{
+    int i;
+
+    system("cls");
+    printf("=========================================================================\n");
+    printf("                           ALUMNOS LLAMADOS JUAN\n");
+    printf("=========================================================================\n");
+    printf("\n");
+    system("pause");
+
+    system("cls");
+    printf("%4s %20s %4s %5s \n", "Legajo", "Nombre", "Nota", "Altura");
+
+    for(i=0; i<tam; i++)
+    {
+        if(strcmp(listadoAlumnos[i].nombre, "Juan") == 0 || strcmp(listadoAlumnos[i].nombre, "juan") == 0)
+        {
+            printf("%4d %20s %4d %5.2f\n", listadoAlumnos[i].legajo, listadoAlumnos[i].nombre, listadoAlumnos[i].nota, listadoAlumnos[i].altura);
+        }
+    }
+    system("pause");
+}
+
+void mostrarAlumnosNombreP(sAlumno listadoAlumnos[], int tam)
+{
+    int i;
+
+    system("cls");
+    printf("=========================================================================\n");
+    printf("                         ALUMNOS CON NOMBRES CON 'P'\n");
+    printf("=========================================================================\n");
+    printf("\n");
+    system("pause");
+
+    system("cls");
+    printf("%4s %20s %4s %5s \n", "Legajo", "Nombre", "Nota", "Altura");
+
+    for(i=0; i<tam; i++)
+    {
+        if(listadoAlumnos[i].nombre[0] == 'P' || listadoAlumnos[i].nombre[0] == 'p')
         {
             printf("%4d %20s %4d %5.2f\n", listadoAlumnos[i].legajo, listadoAlumnos[i].nombre, listadoAlumnos[i].nota, listadoAlumnos[i].altura);
         }
