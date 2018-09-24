@@ -56,6 +56,9 @@ void menu(sAlumno listadoAlumnos[])
         case 8:
             mostrarAlumnosNombreP(listadoAlumnos);
             break;
+        case 9:
+            modifNotaDesdeLegajo(listadoAlumnos);
+            break;
         case 10:
             opcion=10;
             break;
@@ -260,9 +263,9 @@ void mostrarAlumnosNombreP(sAlumno listadoAlumnos[])
     system("pause");
 }
 
-/*void cambiarNota(sAlumno listadoAlumnos[] , int TAM )
+void modifNotaDesdeLegajo(sAlumno listadoAlumnos[])
 {
-    int i;
+    int legajoIntroducido;
 
     system("cls");
     printf("=========================================================================\n");
@@ -271,9 +274,48 @@ void mostrarAlumnosNombreP(sAlumno listadoAlumnos[])
     printf("\n");
     system("pause");
 
+    system("cls");
+    mostrarAlumnos(listadoAlumnos);
+    printf("=========================================================================\n");
+    printf("Ingrese el legajo del alumno que quiere modificar: ");
+    scanf("%d", &legajoIntroducido);
+    fflush(stdin);
+    buscarLegajoYCambiarNota(listadoAlumnos, legajoIntroducido);
 
 }
-*/
+void buscarLegajoYCambiarNota(sAlumno listadoAlumnos[], int legajoIntroducido)
+{
+    int i;
+    char rta;
+
+    for(i=0; i<TAM; i++)
+    {
+        if(listadoAlumnos[i].estado == OCUPADO && listadoAlumnos[i].legajo == legajoIntroducido)
+        {
+            printf("Desea modificar la nota de este alumno?\n");
+            printf("    (Ingrese S para Si o N para No)\n)");
+            printf("\n");
+            printf("%4d %20s %4d %5.2f\n", listadoAlumnos[i].legajo, listadoAlumnos[i].nombre, listadoAlumnos[i].nota, listadoAlumnos[i].altura);
+            printf("\n");
+            scanf("%c", &rta);
+            if(rta == 's' || rta == 'S')
+            {
+                printf("Ingrese nueva nota: ");
+                listadoAlumnos[i].nota=scanf("%d", &listadoAlumnos[i].nota);
+            }
+            else if(rta == 'n' || rta == 'N')
+            {
+                break;
+            }
+            else
+            {
+                printf("No ingreso una opcion valida");
+            }
+        }
+    }
+    system("pause");
+}
+
 void inicializarArrayIlogicamente(sAlumno listadoAlumnos[])
 {
     int i;

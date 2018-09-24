@@ -55,3 +55,17 @@
 	<string.h>
 	"Biblioteca.h"
 
+1537813561 source:c:\users\bruno\desktop\vectores-paralelos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Biblioteca.h"
+
+1537813561 c:\users\bruno\desktop\vectores-paralelos\biblioteca.h
+
+1537814170 source:c:\users\bruno\desktop\vectores-paralelos\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Biblioteca.h"
+
