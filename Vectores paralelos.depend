@@ -41,3 +41,17 @@
 	<string.h>
 	"Biblioteca.h"
 
+1537800567 source:c:\users\alumno\desktop\vectores-paralelos\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Biblioteca.h"
+
+1537797959 c:\users\alumno\desktop\vectores-paralelos\biblioteca.h
+
+1537797991 source:c:\users\alumno\desktop\vectores-paralelos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Biblioteca.h"
+

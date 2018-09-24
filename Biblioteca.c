@@ -32,7 +32,7 @@ void menu(sAlumno listadoAlumnos[])
         switch(opcion)
         {
         case 1:
-            cargarAlumnos(listadoAlumnos);
+            cargarLibre(listadoAlumnos);
             break;
         case 2:
             mostrarAlumnos(listadoAlumnos);
@@ -66,7 +66,7 @@ void menu(sAlumno listadoAlumnos[])
     }
     while (opcion != 10);
 }
-void cargarAlumnos(sAlumno listadoAlumnos[])
+void cargarAlumnos(sAlumno listadoAlumnos[], int i)
 {
     system("cls");
     printf("Ingrese legajo: ");
@@ -90,12 +90,15 @@ void cargarLibre(sAlumno listadoAlumnos[])
     int i;
     i=buscarLibre(listadoAlumnos);
 
-    if(i=-1)
+    if(i == -1)
     {
-        printf("No se encontro un lugar libre");
+        system("cls");
+        printf("No se encontro un lugar libre!\n");
+        printf("\n");
+        system("pause");
     }
     else{
-        cargarAlumnos(listadoAlumnos);
+        cargarAlumnos(listadoAlumnos, i);
     }
 }
 
@@ -296,8 +299,3 @@ int buscarLibre(sAlumno listadoAlumnos[])
     }
     return bandera;
 }
-
-/*inicializar
-buscar libre
-cargar > cambiar estado
-*/

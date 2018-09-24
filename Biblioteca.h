@@ -29,7 +29,7 @@ void menu(sAlumno[]);
  * \return void
  *
  */
-void cargarAlumnos(sAlumno[]);
+void cargarAlumnos(sAlumno[], int);
 
 /** \brief muestra la lista de alumnos tal como se ingreso
  *

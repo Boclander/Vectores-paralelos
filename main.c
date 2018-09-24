@@ -9,10 +9,10 @@
 
 int main()
 {
-    sAlumno listadoAlumnos[T];
+    sAlumno listadoAlumnos[TAM];
 
-    inicializarArrayIlogicamente(listadoAlumnos, T);
-    menu(listadoAlumnos, T);
+    inicializarArrayIlogicamente(listadoAlumnos);
+    menu(listadoAlumnos);
 
     return 0;
 }
